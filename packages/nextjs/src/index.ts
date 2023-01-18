@@ -14,7 +14,6 @@ import {
   NextApiResponse
 } from 'next';
 import { NextRequest, NextResponse } from 'next/server';
-import { PKG_NAME, PKG_VERSION } from './constants';
 
 // Types
 export type { Session, User, SupabaseClient } from '@supabase/supabase-js';
@@ -55,7 +54,7 @@ export function createBrowserSupabaseClient<
         ...options?.global,
         headers: {
           ...options?.global?.headers,
-          'X-Client-Info': `${PKG_NAME}@${PKG_VERSION}`
+          'X-Client-Info': `${PACKAGE_NAME}@${PACKAGE_VERSION}`
         }
       }
     },
@@ -116,7 +115,7 @@ export function createServerSupabaseClient<
         ...options?.global,
         headers: {
           ...options?.global?.headers,
-          'X-Client-Info': `${PKG_NAME}@${PKG_VERSION}`
+          'X-Client-Info': `${PACKAGE_NAME}@${PACKAGE_VERSION}`
         }
       }
     },
@@ -175,7 +174,7 @@ export function createMiddlewareSupabaseClient<
         ...options?.global,
         headers: {
           ...options?.global?.headers,
-          'X-Client-Info': `${PKG_NAME}@${PKG_VERSION}`
+          'X-Client-Info': `${PACKAGE_NAME}@${PACKAGE_VERSION}`
         }
       }
     },
@@ -225,7 +224,7 @@ export function createServerComponentSupabaseClient<
     options: {
       global: {
         headers: {
-          'X-Client-Info': `${PKG_NAME}@${PKG_VERSION}`
+          'X-Client-Info': `${PACKAGE_NAME}@${PACKAGE_VERSION}`
         }
       }
     },
